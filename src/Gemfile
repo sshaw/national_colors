@@ -1,0 +1,4 @@
+source "https://rubygems.org"
+
+gem "normalize_country"
+gem "nokogiri"
