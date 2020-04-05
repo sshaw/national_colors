@@ -21,11 +21,15 @@ Alternatively, if you prefer [Bundler](https://bundler.io/):
     bundle install
     bundle exec ruby extract.rb
 
-The JSON will be sent to stdout.
+The JSON will be written to `national_colors.json`. To use a different filename:
+
+```
+ruby extract.rb my_amaaaaaaaazing_filename.json
+```
 
 ## html-colors
 
-Mapping of CSS colors to hex colors are done via a JSON file stolen from the
+Mapping of CSS color names to hex values are done via a JSON file stolen from the
 [html-colors](https://github.com/radiovisual/html-colors) node package.
 
 ## License

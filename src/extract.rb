@@ -8,7 +8,6 @@ require "normalize_country"
 def to_hex(name)
   # CSS names only
   return name unless name =~ /\A[a-z]+\z/i
-  return unless HEX_COLOR[name.downcase]
   HEX_COLOR[name.downcase]
 end
 
@@ -26,6 +25,7 @@ def get_colors(styles)
   colors
 end
 
+OUTPUT_FILENAME = "national_colors.json"
 HEX_COLOR = JSON.load(File.read(File.join(__dir__, "html-colors.json")))
 HEADINGS = ["Africa", "North America", "South America", "Asia", "Europe", "Oceania"].freeze
 RESULTS = []
@@ -63,4 +63,4 @@ open("https://en.m.wikipedia.org/wiki/National_colours") do |io|
   end
 end
 
-puts JSON.pretty_generate(RESULTS)
+File.write(ARGV[0] || OUTPUT_FILENAME, JSON.pretty_generate(RESULTS))
